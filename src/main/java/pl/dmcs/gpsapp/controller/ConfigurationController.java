@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.dmcs.gpsapp.model.Configuration;
 import pl.dmcs.gpsapp.service.ConfigurationService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/configuration")
 public class ConfigurationController {
@@ -32,5 +34,12 @@ public class ConfigurationController {
         Configuration configuration = configurationService.getConfiguration(id);
 
         return ResponseEntity.ok(configuration);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getConfiguration() {
+        List<Configuration> all = configurationService.getAll();
+
+        return ResponseEntity.ok(all);
     }
 }

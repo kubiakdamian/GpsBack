@@ -6,6 +6,8 @@ import pl.dmcs.gpsapp.model.Configuration;
 import pl.dmcs.gpsapp.repository.ConfigurationRepository;
 import pl.dmcs.gpsapp.service.ConfigurationService;
 
+import java.util.List;
+
 @Service
 public class ConfigurationServiceImpl implements ConfigurationService {
 
@@ -24,5 +26,10 @@ public class ConfigurationServiceImpl implements ConfigurationService {
     public Configuration getConfiguration(Long id) {
         return configurationRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("Configuration not found"));
+    }
+
+    @Override
+    public List<Configuration> getAll() {
+        return configurationRepository.findAll();
     }
 }
