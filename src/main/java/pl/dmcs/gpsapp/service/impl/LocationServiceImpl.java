@@ -19,7 +19,7 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public void saveLocation(Location location) {
-        log.debug("Received location: {}", location.toString());
+        log.info("Received location: {}", location.toString());
         locationRepository.save(location);
     }
 }

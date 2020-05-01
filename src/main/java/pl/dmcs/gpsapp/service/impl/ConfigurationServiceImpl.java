@@ -23,7 +23,7 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 
     @Override
     public void addConfiguration(Configuration configuration) {
-        log.debug("Received configuration: {}", configuration.toString());
+        log.info("Received configuration: {}", configuration.toString());
         configurationRepository.save(configuration);
     }
 
